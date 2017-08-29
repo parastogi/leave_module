@@ -1,0 +1,50 @@
+S. No.,Employee-id/PF,Employee Name,Designation,Section/Department/ Other,Leave-Sanctioning-Authority (CL & RH),Leave-Sanctioning-Authority (other type of Leave),employee-institute-mail-id
+1,15,Mr. Dev Krishan Jha,Senior Assistant,Finance and Accounts,Registrar,Registrar,devj@iiitdmj.ac.in
+2,16,Mr. Pankaj Prajapati,Junior Assistant,Establishment,Registrar,Registrar,pankaj@iiitdmj.ac.in
+3,17,Mr. Simanta Kar Gupta,Junior Assistant,Academics,Dean Academic,Dean Academic,simanta@iiitdmj.ac.in
+4,18,Mr. Alok Kulkarni,Senior Technician,Computer Center,Coordinator Computer Center,Registrar,alok@iiitdmj.ac.in
+5,19,Mr. Sandeep Awasthi,Senior Assistant,Academics,Dean Academic,Dean Academic,sawasthi@iiitdmj.ac.in
+6,20,Mr. Akhilesh Srivastava,Senior Technician,ECE,HOD (ECE),Registrar,akhil@iiitdmj.ac.in
+7,22,Mr. Varun Dubey,Junior Technician,Natural Science,HOD (NS),Registrar,dvarun@iiitdmj.ac.in
+8,23,Mr. Mayur Shudhakar Mungole,Senior Technician,Mechatronics,Coordinator Mechatronics ,Registrar,mayur@iiitdmj.ac.in
+9,24,Mrs. Aayesha Begum Mansoori,Junior Technician,ECE,HOD (ECE),Registrar,ayesha@iiitdmj.ac.in
+10,25,Mr. Anil Kumar,Senior Assistant,Placement Cell,Chairman Placement Cell,Registrar,anil@iiitdmj.ac.in
+11,26,Mrs. Bharti Kewat,Senior Technician,ECE,HOD (ECE),Registrar,bharti@iiitdmj.ac.in
+12,27,Mr. Rakesh Kumar Mishra,Junior Engineer,IWD,Dean (P&D),Dean (P&D),rmishra@iiitdmj.ac.in
+13,52,Mr. Prashant Agnihotri,Junior Assistant,Office of The Dean R&D,Dean (R&D),Dean (R&D),prashanta@iiitdmj.ac.in
+14,53,Mr. Mohd. Izrael Khan,Driver,Directorate,Registrar,Registrar,izrael@iiitdmj.ac.in
+15,55,Mr. Sailesh Sharma,Senior Assistant,Directorate,Registrar,Registrar, shailesh@iiitdmj.ac.in
+16,57,Mr. Anupam Shukla,Senior Technician,ME,HOD (ME),Registrar,anupam@iiitdmj.ac.in
+17,58,Mrs. Sapana Tayade,Senior Assistant,Library,Registrar,Registrar,Sapana@iiitdmj.ac.in
+18,60,Mr. Praveen Kumar Armo,Senior Assistant,Office of The Dean P&D,Dean (P&D),Dean (P&D),praveen@iiitdmj.ac.in
+19,62,Mr. Ashok Kumar,Junior Superintendent,Student Affairs,Dean (Student),Dean (Student),ashokk@iiitdmj.ac.in
+20,64,Mr. Rajesh Kumar,Junior Assistant,Finance and Accounts,Registrar,Registrar,rajeshk@iiitdmj.ac.in
+21,65,Mr. Kamlesh Singh Warkade,Senior Assistant,General Administration,Registrar,Registrar,kamlesh@iiitdmj.ac.in
+22,68,Mr. Aloysius Beenu Michael,Junior Superintendent,Registrar Office,Registrar,Registrar,michael@iiitdmj.ac.in
+23,71,Mr. Vijay Kumar Dubey,Executive Engineer (Civil),IWD,Dean (P&D),Dean (P&D),dvijay@iiitdmj.ac.in
+24,77,Mr. Adesh Kumar,Junior Assistant,Purchase and Store,Registrar,Registrar,adesh@iiitdmj.ac.in
+25,78,Mr. Ram Dularey Vishwakarma,Junior Technician,Design,HOD (Design),Registrar,ramdv@iiitdmj.ac.in
+26,88,Mr. Milind P Bobde,Junior Technician,IWD,Dean (P&D),Dean (P&D),milind@iiitdmj.ac.in
+27,89,Mr. Ganesh Prashad Kashyap,Driver,General Administration,Registrar,Registrar,ganesh@iiitdmj.ac.in
+28,92,Ms. Megha Kushwah,Junior Superintendent,Library,Registrar,Registrar,megha@iiitdmj.ac.in
+29,93,Mrs. Menika Patel,Assistant Registrar,Library,Registrar,Registrar,menika@iiitdmj.ac.in
+30,94,Mr. Sunil Jat,Junior Engineer,IWD,Dean (P&D),Dean (P&D),suniljat@iiitdmj.ac.in
+31,96,Mr. Piyush Kumar Usrathe,Senior Technician,Computer Center,Coordinator Computer Center,Registrar,piyush@iiitdmj.ac.in
+32,97,Mr. Anup Bajpai,Senior Technician,ME,HOD (ME),Registrar,anupb@iiitdmj.ac.in
+33,99,Mr. Ghanshyam Meshram,Senior Technician,Computer Center,Coordinator Computer Center,Registrar,shyam@iiitdmj.ac.in
+34,100,Mr. Robinson George Markam,Junior Technician,Computer Center,Coordinator Computer Center,Registrar,robin@iiitdmj.ac.in
+35,101,Mr. Anup Kumar Gupta,Junior Technician,Computer Center,Coordinator Computer Center,Registrar,ak@iiitdmj.ac.in
+36,102,Mr. Tabish Khan,Junior Technician,Computer Center,Coordinator Computer Center,Registrar,tabish@iiitdmj.ac.in
+37,103,Mr. Manoj Tigga,Junior Technician,Workshop,"Incharge, Workshop",Registrar,manoj@iiitdmj.ac.in
+38,105,Mr. Rizwan Ahmed,Assistant Registrar,Establishment & P&S,Registrar,Registrar,rizwan@iiitdmj.ac.in
+39,106,Mr. Naresh Joshi,Assistant Registrar,F&A & GA,Registrar,Registrar,nareshjoshi@iiitdmj.ac.in
+40,107,Mr. Santosh Mahobia,Assistant Registrar,Directorate,Registrar,Registrar,santosh@iiitdmj.ac.in
+41,110,Mr. Kanhaiya Lal Barmaiya,Junior Assistant,"Establishment, RTI and Rajbhasha",Registrar,Registrar,klb@iiitdmj.ac.in
+42,113,Mr. Rajesh,Junior Assistant,Academics,Dean Academic,Dean Academic,krajesh@iiitdmj.ac.in
+43,129,Mr. Jitendra Bahadur Singh,Senior Assistant,Security and Central Mess,Registrar,Registrar,jbsingh@iiitdmj.ac.in
+44,130,Mrs. S D Gadekar,Deputy Registrar,Academics,Director,Director,swapnali@iiitdmj.ac.in
+45,132,Mr. Abhishek Bawane,Junior Assistant,Purchase and Store,Registrar,Registrar,abhishekb@iiitdmj.ac.in
+46,133,Mr. Richard Saberio,Junior Assistant,Directorate,Registrar,Registrar,richard@iiitdmj.ac.in
+47,134,Mr. Rahul Kumar Deshmukh,Junior Assistant,General Administration,Registrar,Registrar,drahul@iiitdmj.ac.in
+48,135,Ms. Aishwarya Pradhan,Junior Assistant,ME,HOD (ME),Registrar,aishwarya@iiitdmj.ac.in
+49,136,Mr. Nishant Karda,Junior Assistant,Registrar Office,Registrar,Registrar,nkarda@iiitdmj.ac.in

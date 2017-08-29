@@ -1,0 +1,12 @@
+#main{
+	background:url('../img/clg1.jpg')no-repeat center center fixed;
+	/*height:1000px";*/
+	height: 1000px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 1855px;
+	background-attachment: fixed;
+	/*opacity: 0.4;*/
+
+}

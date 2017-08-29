@@ -1,0 +1,63 @@
+S. No.,Employee-id/PF,Employee Name,Section/Department/Other,Head/Ic. Section/Department/Other,Leave-Sanctioning-Authority (CL & RH),Leave-Sanctioning-Authority (other type of Leave),employee-institute-mail-id
+1,5,Prof. Aparajita Ojha,CSE,,Head,Director,aojha@iiitdmj.ac.in
+2,3,Prof. Puneet Tandon,Design,Dean (RSPC),Head,Director,ptandon@iiitdmj.ac.in
+3,4,Prof. Tanuja Sheorey,ME,,Head,Director,tanush@iiitdmj.ac.in
+4,31,Dr. Vijay Kumar Gupta,ME,Head ME,Director,Director,vkgupta@iiitdmj.ac.in
+5,72,Prof. P.N. Kondekar,ECE,Dean (P&D),Head,Director,pnkondekar@iiitdmj.ac.in
+7,6,Dr. Pritee Khanna,CSE,Head CSE,Director,Director,pkhanna@iiitdmj.ac.in
+8,74,Dr. Atul Gupta,CSE,,Head,Director,atul@iiitdmj.ac.in
+9,33,Dr. Prabin Kumar Padhy,ECE,Dean (Acadmic),Head,Director,prabin16@iiitdmj.ac.in
+10,13,Dr.  Sunil Agarwal,ME,,Head,Director,sa@iiitdmj.ac.in
+11,41,Dr. Prashant Kumar Jain,ME,Dean (Students),Head,Director,pkjain@iiitdmj.ac.in
+12,44,Dr. Goutam Dutta,ME,,Head,Director,gd@iiitdmj.ac.in
+13,47,Dr. Dinesh Kr.Vishwakarma,ECE,Head ECE,Director,Director,dineshk@iiitdmj.ac.in
+14,75,Dr. Prabir Mukhopadhyay,Design,Head Design,Director,Director,prabir@iiitdmj.ac.in
+15,91,Dr. Jawar Singh ,ECE,,Head,Director,jawar@iiitdmj.ac.in
+16,43,Dr. Asish Kumar Kundu,Natural Science,,Head,Director,asish.kundu@iiitdmj.ac.in
+17,9,Dr. Subir Singh Lamba,Natural Science,Head NS,Director,Director,subirs@iiitdmj.ac.in
+18,11,Dr. Mukesh Kumar Roy,Natural Science,,Head,Director,mkroy@iiitdmj.ac.in
+19,30,Dr.  Bhupendra Gupta,Natural Science,,Head,Director,bhupen@iiitdmj.ac.in
+20,46,Dr. H Chelladurai ,ME,,Head,Director,chella@iiitdmj.ac.in
+21,48,Dr. M Amarnath,ME,,Head,Director,amarnath@iiitdmj.ac.in
+22,40,Dr. Lokendra  Kumar Balyan,Natural Science,,Head,Director,balyan@iiitdmj.ac.in
+23,50,Dr. Anil Kumar ,ECE,,Head,Director,anilk@iiitdmj.ac.in
+24,83,Dr. Sraban Kumar Mohanty,CSE,,Head,Director,sraban@iiitdmj.ac.in
+25,84,Dr. Mamta Anand,Natural Science,,Head,Director,manand@iiitdmj.ac.in
+26,85,Dr. Pavan Kumar Kankar,ME,,Head,Director,kankar@iiitdmj.ac.in
+27,87,Dr. Nihar Ranjan Jena,Natural Science,,Head,Director,nrjena@iiitdmj.ac.in
+28,112,Dr. Sujoy Mukherjee,ME,,Head,Director,sujoy@iiitdmj.ac.in
+29,114,Dr. Amresh Chandra Mishra,Natural Science,,Head,Director,amresh@iiitdmj.ac.in
+30,115,Dr. Manoj Singh Parihar ,ECE,,Head,Director,mparihar@iiitdmj.ac.in
+31,116,Dr. Sangeeta Pandit ,Design,,Head,Director,s.pandit@iiitdmj.ac.in
+32,117,Dr. Shekhar Chaterjee,Design,,Head,Director,chatterjees@iiitdmj.ac.in
+33,37,Dr. Sachin Kumar Jain,ECE,,Head,Director,skjain@iiitdmj.ac.in
+34,119,Dr. Manish Kumar Bajpai,CSE,,Head,Director,mkbajpai@iiitdmj.ac.in
+35,120,Dr. Vinod Kumar Jain,CSE,,Head,Director,vkjain@iiitdmj.ac.in
+36,121,Dr. Matadeen Bansal,ECE,,Head,Director,mbansal@iiitdmj.ac.in
+37,123,Dr. Nihar Kumar Mahato ,Natural Science,,Head,Director,nihar@iiitdmj.ac.in
+38,124,Dr. Manoj Kumar Panda,Natural Science,,Head,Director,mkpanda@iiitdmj.ac.in
+39,125,Dr. Neeraj Kumar Jaiswal ,Natural Science,,Head,Director,neeraj@iiitdmj.ac.in
+40,127,Dr. Varun Bajaj,ECE,,Head,Director,varunb@iiitdmj.ac.in
+41,126,Dr. Mohd Zahid Ansari,ME,,Head,Director,zahid@iiitdmj.ac.in
+42,131,Dr. Ayan Seal,CSE,,Head,Director,ayan@iiitdmj.ac.in
+43,67,Dr. Biswajeet Mukherjee,ECE,,Head,Director,b.mukherjee@iiitdmj.ac.in 
+44,137,Dr. Dheeraj Sharma,ECE,,Head,Director,dheeraj@iiitdmj.ac.in
+45,139,Dr. Kusum Kumari Bharti,CSE,,Head,Director,kusum@iiitdmj.ac.in
+46,140,Dr. Deepmala,Natural Science,,Head,Director,deepmala@iiitdmj.ac.in
+47,141,Dr. Yashpal Singh Katharria,Natural Science,,Head,Director,yashpalk@iiitdmj.ac.in
+48,142,Dr. Samrat Rao,ME,,Head,Director,samrat.rao@iiitdmj.ac.in
+49,144,Dr. DIP Prakash Samajdar,ECE,,Head,Director,dip.samajdar@iiitdmj.ac.in
+50,145,Dr. Harpreet Singh,ME,,Head,Director,hps.dme@iiitdmj.ac.in
+51,146,Dr. Atul Kumar,ECE,,Head,Director,atul.kumar@iiitdmj.ac.in
+52,147,Dr. Shiv Dayal Patel,ME,,Head,Director,shivdayal@iiitdmj.ac.in
+53,148,Dr. Saurabh Pratap,ME,,Head,Director,s.pratap@iiitdmj.ac.in
+54,149,Dr. Mohona Ghosh,CSE,,Head,Director,mohona@iiitdmj.ac.in
+55,150,Dr. Irshad Ahmad Ansari,ECE,,Head,Director,irshad@iiitdmj.ac.in
+56,151,Dr. Trivesh Kumar,ECE,,Head,Director,trivesh@iiitdmj.ac.in
+57,152,Dr. Tripti Singh,Design,,Head,Director,ts@iiitdmj.ac.in
+58,153,Dr. Ravi Panwar,ECE,,Head,Director,rpanwar@iiitdmj.ac.in
+1,14,Awadesh Kumar Singh,ME,,Head,Director,aks@iiitdmj.ac.in
+2,36,K.K. Soundra Pandian,ECE,,Head,Director,kpandian@iiitdmj.ac.in
+3,66,Dada Saheb Ramteke,ME,,Head,Director,
+4,69,Saket Saurav,CSE,,Head,Director,saket@iiitdmj.ac.in
+5,95,Mohd Sharique Husain,CSE,,Head,Director,
