@@ -79,7 +79,37 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 
 class DepartmentHead(models.Model):
-    department=models.CharField(max_length=50)
+    DEPARTMENT = (
+        ('FA','Finance and Accounts'),
+        ('EST','Establishment'),
+        ('Academics','Academics'),
+        ('CC','Computer Center'),
+        ('ECE','ECE'),
+        ('CSE','CSE'),
+        ('ME','ME'),
+        ('Design','Design'),
+        ('Mechatronics','Mechatronics'),
+        ('NS','Natural Science'),
+        ('PC','Placement Cell'),
+        ('IWD','IWD'),
+        ('R&D','Office of The Dean R&D'),
+        ('Directorate','Directorate'),
+        ('Library','Library'),
+        ('P&D','Office of The Dean P&D'),
+        ('Student Affairs','Student Affairs'),
+        ('GA','General Administration'),
+        ('RO','Registrar Office'),
+        ('PS','Purchase and Store'),
+        ('Workshop','Workshop'),
+        ('EST-PS','Establishment & P&S'),
+        ('FA-GA','F&A & GA'),
+        ('Security','Security and Central Mess'),
+        ('RTI','Establishment, RTI and Rajbhasha'),
+        ('RSPC','RSPC'),
+        )
+
+    department=models.CharField(max_length=50,choices=DEPARTMENT,default="CSE")
+   
     hod=models.ForeignKey(User,on_delete=models.CASCADE)
 # from django.dispatch import receiver
 #

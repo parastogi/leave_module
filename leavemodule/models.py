@@ -79,4 +79,4 @@ class Inbox(models.Model):
     date=models.DateTimeField()
 
     def __str__(self):
-        return "receiver="+str(self.pf_reciever.pk)+"sender="+str(self.pf_sender.pk)
+        return "receiver="+str(self.pf_reciever.pk)+"  "+"sender="+str(self.pf_sender.pk)
