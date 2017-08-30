@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Examples for creative website header animations using Canvas and JavaScript" />
+    <meta name="keywords" content="header, canvas, animated, creative, inspiration, javascript" />
+    <meta name="author" content="Codrops" />
+    <title>IIIT</title>
+    <!-- <link rel="shortcut icon" href="../favicon.ico"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'leavemodule/css/new.css' %}" />
+		<!-- <link rel="stylesheet" type="text/css" href="{% static 'leavemodule/css/clg.css' %}new.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'basic/css/demo.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'basic/css/component.css' %}" /> -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Just+Another+Hand" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
+		<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script> -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style media="screen">
+
+      .btn{
+        background-color: #aa00ff;
+      }
+      .btn:hover{
+        background-color: #000000 ;
+      }
+      #nav_but{
+        margin-left:85px;
+      }
+      #nav_but:hover{
+        margin-left:85px;
+        color: black;
+        text-decoration: none;
+      }
+      span{
+        font-size: 20px;
+
+      }
+      /*.main{
+        background-image: url('{% static "basic/clg.jpg"%}');
+        opacity:0.5;
+      }*/
+    </style>
+  </head>
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper purple accent-4">
+
+          <!-- <ul class="right hide-on-med-and-down">
+            <li><a class="waves-effect waves-light btn modal-trigger " href="#modal1" ><center>Login</center></a></li>
+            <li><a class="waves-effect waves-light btn modal-trigger "  href="#modal1" ><center>Sign Up</center></a></li>
+          </ul> -->
+          {% if email %}
+            <ul>
+              <li><a href="#!" class="brand-logo left" style="margin-left:20px"><img src="{% static 'basic/logo.jpg' %}" style="height:65px;width:65px" alt=""></a></li>
+              <li><a class="waves-effect waves-light" id="nav_but" href="/leave_module"><center>Leave Module</center></a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+              <li><i class="material-icons md-48" style="margin-right:20px">perm_identity</i></li>
+              <li><font style="margin-right:20px">{{email}}</font></li>
+              <li><a class="waves-effect waves-light btn" href="/logout/" ><center>LogOut</center></a></li>
+            </ul>
+          {% else %}
+            <ul class="right hide-on-med-and-down">
+              <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1" ><center>Login</center></a></li>
+              <!-- <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1" ><center>Sign Up</center></a></li> -->
+            </ul>
+          {% endif %}
+        </div>
+      </nav>
+    </div>
+    <div id="main" >
+      <!-- <img src="{% static 'leavemodule/css/clg.jpg' %}" alt=""> -->
+      <div class="container" style="padding-top:100px">
+        <div class="row">
+          <div class="card col s12 ">
+            <div class="row"style="padding:50px;padding-bottom:0px">
+              <div class="left card-title col s12">
+                <b>Inbox</b>
+              </div>
+              <br><br>
+              <div class="col s12">
+                <strong>Requests</strong>
+                </br>
+                <hr style="border: 1px dashed black;" />
+                {% if check is not 0 %}
+                    {% for app in application %}
+                      {% if app.status == 0 %}
+                        <div class="row">
+                          <span class="col s1" style="padding-top: 10px;">{{ forloop.counter }}.</span>
+                          <span class="col s7 offset-s1" style="padding-top: 10px;">{{ app.pf_in.name }}</span>
+                          <div class="col s1 offset-s2 buttons" id="add{{ forloop.counter }}"style="padding-top:20px;display:block">
+                            <a data = {{ forloop.counter }} class="btn-floating btn-large waves-effect waves-light red showdetail">
+                              <i class="material-icons">add</i>
+                            </a>
+                          </div>
+                          <div class="col s1 offset-s2 buttons" id="minus{{ forloop.counter }}" style="padding-top:20px;display:none">
+                            <a data = {{ forloop.counter }} class="btn-floating btn-large waves-effect waves-light red hidedetail">
+                              <i class="material-icons">remove</i>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col s10 offset-s1 data" id="detail{{ forloop.counter }}" style="display:none; border:1px black solid">
+                            <span ><strong>Type of Leave:</strong>
+                              {% for key,value in leaves.items %}
+                                {% if app.type_of_leave == key %}
+                                  {{value}}
+                                {% endif %}
+                                {% endfor %}
+                            </span><br>
+                            <span ><strong>From:</strong>   {{app.from_date}}</span><br>
+                            <span ><strong>Till:</strong>   {{app.till_date}}</span><br>
+                            <span><strong>Academic Responsibilty:</strong>   {{app.acad_pf.name }}</span><br>
+                            <span><strong>Administrative Responsibilty:</strong>   {{app.admin_pf.name}}</span><br>
+                            <span class="row" style="margin-bottom:20px">
+                              <form action="/leave_module/{{app.pk}}/process/" method="post">
+                                {% csrf_token %}
+                                <div class="input-field col s10" >
+                                  <textarea id="remark" class="materialize-textarea" name="remark"></textarea>
+                                  <label for="remark">Remarks</label>
+                                </div>
+                                {% if app.type_of_leave in cl_rh %}
+                                <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="approve">
+                                {% elif app.type_of_leave in others %}
+                                <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="forward">
+                                {% endif %}
+                                <input class="btn" style="width:150px"type="submit" name="submit" value="reject">
+
+                              </form>
+                            </div>
+                          </div>
+                      {% elif app.status == 2 %}
+                      <div class="row">
+                          <span class="col s1" style="padding-top: 10px;">{{ forloop.counter }}.</span>
+                          <span class="col s7 offset-s1" style="padding-top: 10px;">{{ app.pf_in.name }}</span>
+                          <div class="col s1 offset-s2 buttons" id="add{{ forloop.counter }}" style="padding-top:20px;display:block">
+                            <a data = {{ forloop.counter }} class="btn-floating btn-large waves-effect waves-light red showdetail">
+                              <i class="material-icons">add</i>
+                            </a>
+                          </div>
+                          <div class="col s1 offset-s2 buttons" id="minus{{ forloop.counter }}"style="padding-top:20px;display:none">
+                            <a data = {{ forloop.counter }} class="btn-floating btn-large waves-effect waves-light red hidedetail">
+                              <i class="material-icons">remove</i>
+                            </a>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col s10 offset-s1 data"  id="detail{{ forloop.counter }}" style="display:block; border:1px black solid">
+                            <span ><strong>Type of Leave:</strong>
+                              {% for key,value in leaves.items %}
+                                {% if app.type_of_leave == key %}
+                                  {{value}}
+                                {% endif %}
+                                {% endfor %}
+                            </span><br>
+                            <span><strong>From:</strong>   {{app.from_date}}</span><br>
+                            <span><strong>Till:</strong>   {{app.till_date}}</span><br>
+                            <span><strong>Academic Responsibilty:</strong>   {{app.acad_pf.name }}</span><br>
+                            <span><strong>Administrative Responsibilty:</strong>   {{app.admin_pf.name}}</span><br>
+                            <div class="row" style="margin-bottom:20px">
+                              <form action="/leave_module/{{app.pk}}/process/" method="post">
+                                {% csrf_token %}
+                                <div class="input-field col s10" >
+                                  <textarea id="remark" class="materialize-textarea" name="remark"></textarea>
+                                  <label for="remark">Remarks</label>
+                                </div>
+                                <!-- {% if app.type_of_leave in cl_rh %} -->
+                                <!-- <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="approve"> -->
+                                <!-- {% elif app.type_of_leave in others %} -->
+                                <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="approve">
+                                <!-- {% endif %} -->
+                                <input class="btn" style="width:150px"type="submit" name="submit" value="reject">
+
+                              </form>
+                            </div>
+                          </div>
+                      </div>
+                      {% endif %}
+                    {% endfor %}
+                    {% else %}
+                      <p>There are no furhter records</p>
+                    {% endif %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+
+    // $('.buttons').on('click', 'a', function(){
+    // // do something here
+    //    document.getElementByClass(".data").style.display="block";
+    //  });
+    $('.showdetail').click(function(e){
+      id = $(this).attr('data');
+      div = $('#detail'+id);
+      div1= $('#minus'+id);
+      div2= $('#add'+id);
+      div2.css({'display':'none'});
+      div1.css({'display':'block'});
+      div.css({'display': 'block'});
+
+    });
+    $('.hidedetail').click(function(e){
+      id = $(this).attr('data');
+      div = $('#detail'+id);
+      div1= $('#minus'+id);
+      div2= $('#add'+id);
+      div2.css({'display':'block'});
+      div1.css({'display':'none'});
+      div.css({'display': 'none'});
+
+    });
+    </script>
+</body>
+</html>

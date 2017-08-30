@@ -18,10 +18,10 @@ class Leave_credits(models.Model):
 
 class Application(models.Model):
     from datetime import datetime
-
-    pf_in=models.IntegerField()
+    
+    pf_in=models.ForeignKey(User,on_delete=models.CASCADE,related_name='pf_in')
     pf_out=models.IntegerField()
-    type_of_leave=models.CharField(max_length=100)
+    type_of_leave=models.IntegerField()
     from_date=models.DateField()
     till_date=models.DateField()
     acad_pf=models.ForeignKey(User,on_delete=models.CASCADE,related_name='acad_pf')
@@ -30,13 +30,13 @@ class Application(models.Model):
     purpose=models.CharField(max_length=500)
     date_of_app=models.DateField()
     is_station=models.BooleanField(default="false")
-    st_from_date=models.DateField()
-    st_till_date=models.DateField()
+    st_from_date=models.DateField(null=True, blank=True)
+    st_till_date=models.DateField(null=True, blank=True)
     status=models.IntegerField()
     remarks=models.CharField(max_length=100, null=True)
 
     def __str__(self):
-        return self.pk
+        return str(self.pk)
 
 
 class Sanction(models.Model):
