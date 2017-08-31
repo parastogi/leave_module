@@ -7,7 +7,7 @@ from .models import Application, Leave_credits, Sanction, Inbox
 
 class SanctionAdmin(admin.ModelAdmin):
     model = Sanction
-    
+
     fieldsets = [
         (None,{'fields': ['department']}),
         (None, {'fields': ['sanction_cl_rh']}),
@@ -17,7 +17,7 @@ class SanctionAdmin(admin.ModelAdmin):
 
 class InboxAdmin(admin.ModelAdmin):
     model = Inbox
-    
+
     fieldsets = [
         (None,{'fields': ['pf_sender']}),
         (None, {'fields': ['pf_reciever']}),
@@ -28,7 +28,7 @@ class InboxAdmin(admin.ModelAdmin):
 
 class Leave_creditsAdmin(admin.ModelAdmin):
     model = Leave_credits
-    
+
     fieldsets = [
         (None,{'fields': ['pf']}),
         (None, {'fields': ['casual']}),
@@ -42,17 +42,17 @@ class Leave_creditsAdmin(admin.ModelAdmin):
 
 class DepartmentHeadAdmin(admin.ModelAdmin):
     model = DepartmentHead
-    
+
     fieldsets = [
         (None,{'fields': ['department']}),
         (None, {'fields': ['hod']}),
-        
+
     ]
     list_display = ('department', 'hod')
 
 class UserAdmin(admin.ModelAdmin):
     model = User
-    
+
     fieldsets = [
         (None,{'fields': ['pf']}),
         (None, {'fields': ['name']}),
@@ -64,7 +64,7 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ('pf', 'name','email','designation','department','is_staff')
 class ApplicationAdmin(admin.ModelAdmin):
     model = Application
-    
+
     fieldsets = [
         (None,{'fields': ['pf_in']}),
         (None, {'fields': ['pf_out']}),
@@ -75,11 +75,11 @@ class ApplicationAdmin(admin.ModelAdmin):
         (None, {'fields': ['purpose']}),
         (None, {'fields': ['acad_pf']}),
         (None, {'fields': ['admin_pf']}),
-        (None, {'fields': ['date_of_app']}), 
+        (None, {'fields': ['date_of_app']}),
         (None, {'fields': ['is_station']}),
-        (None, {'fields': ['status']}), 
+        (None, {'fields': ['status']}),
         (None, {'fields': ['remarks']}),
-        
+
     ]
     list_display = ('pf_in','pf_out','type_of_leave','from_date','till_date','address','purpose','acad_pf','admin_pf','date_of_app','is_station')
 
@@ -94,4 +94,3 @@ admin.site.register(Application, ApplicationAdmin),
 admin.site.register(Leave_credits,Leave_creditsAdmin),
 admin.site.register(Sanction, SanctionAdmin),
 admin.site.register(Inbox,InboxAdmin)
-

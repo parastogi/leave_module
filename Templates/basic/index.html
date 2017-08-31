@@ -146,6 +146,11 @@
     $('.modal').modal();
   });
   </script>
+  {%if error %}
+  <script type="text/javascript">
+  alert("{{error}}");
+  </script>
+  {% endif %}
 
   </body>
 </html>

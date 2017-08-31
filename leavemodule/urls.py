@@ -9,10 +9,6 @@ urlpatterns =[
 		url(r'^application/',views.application, name='application'),
 		url(r'^response/',views.response, name='response'),
 		url(r'^inbox/',views.inbox, name='inbox'),
-		# url(r'^(?P<ap_id>[0-9]+)/reject/',views.reject, name='reject'),
 		url(r'^(?P<ap_id>[0-9]+)/process/',views.process, name='process'),
-		# url(r'^request/?P<ap_id>[0-9]+/$',views.detail,name='detail')
-
-		url(r'^submit/',views.submit, name='submit')
-
+		url(r'^submit/',views.submit, name='submit'),
 ]

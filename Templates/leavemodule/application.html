@@ -80,7 +80,7 @@
                 <b>Application</b>
               </div>
             </div>
-            <form class="container" method="post" action="submit/">
+            <form class="container" method="post" action="/leave_module/submit/">
                 {% csrf_token %}
                 <div class="col s12">
                     <!-- <div class="row"> -->
@@ -147,7 +147,7 @@
               </div>
               <div class="col s12" style="padding-left:25px;margin-top:10px;margin-bottim:10px">
                 <p>
-                  <input type="checkbox" name="is_staion_leave"id="is_station" />
+                  <input type="checkbox" name="is_staion_leave" id="is_station" value='12' />
                   <label for="is_station">Station Leave</label>
                 </p>
               </div>
@@ -173,14 +173,22 @@
                 </div>
               </div>
               <div class="col 12">
-                <div class="input-field col s6">
-                  <input id="first_name2" type="text" name="admin_res" placeholder="Administrative Responsibility" class="validate">
-                  <!-- <label class="active" for="first_name2">First Name</label> -->
-                </div>
-                <div class="input-field col s6">
-                  <input id="first_name2" type="text" name="acad_res"  placeholder="Academic Responsibility" class="validate">
-                  <!-- <label class="active" for="first_name2">First Name</label> -->
-                </div>
+                <div class="input-field col s6"  name="acad_respo">
+                    <select name="acad_respo">
+                      {% for user in list %}
+                      <option value='{{user}}'>{{user}}</option>
+                      {% endfor %}
+                    </select>
+                    <label>Materialize Select</label>
+                  </div>
+                  <div class="input-field col s6"  name="admin_respo">
+                      <select name="admin_respo">
+                        {% for user in list %}
+                        <option value='{{user}}'>{{user}}</option>
+                        {% endfor %}
+                      </select>
+                      <label>Materialize Select</label>
+                  </div>
               </div>
               <button class="btn waves-effect waves-light purple accent-4" style="Margin-left:25px;margin-bottom:100px"type="submit" name="action">Submit
                 <i class="material-icons right">send</i>
@@ -193,6 +201,10 @@
     </div>
 
     <script type="text/javascript">
+      $(document).ready(function() {
+       $('select').material_select();
+      });
+
       $('#is_station').change(function(){
         if(this.checked)
         {

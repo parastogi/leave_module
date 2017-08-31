@@ -18,15 +18,15 @@ class Leave_credits(models.Model):
 
 class Application(models.Model):
     from datetime import datetime
-    
-    pf_in=models.IntegerField()
+
+    pf_in=models.ForeignKey(User,on_delete=models.CASCADE,related_name='pf_in')
     pf_out=models.IntegerField()
     type_of_leave=models.IntegerField()
     from_date=models.DateField()
     till_date=models.DateField()
     acad_pf=models.ForeignKey(User,on_delete=models.CASCADE,related_name='acad_pf')
     admin_pf=models.ForeignKey(User,on_delete=models.CASCADE,related_name='adin_pf')
-    address=models.CharField(max_length=500)
+    address=models.CharField(max_length=500, null=True)
     purpose=models.CharField(max_length=500)
     date_of_app=models.DateField()
     is_station=models.BooleanField(default="false")
@@ -79,4 +79,4 @@ class Inbox(models.Model):
     date=models.DateTimeField()
 
     def __str__(self):
-        return "receiver="+str(self.pf_reciever.pk)+"  "+"sender="+str(self.pf_sender.pk)
+        return "receiver="+str(self.pf_reciever.pk)+"sender="+str(self.pf_sender.pk)

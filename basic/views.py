@@ -5,6 +5,8 @@ from leavemodule.models import Sanction
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate
+from django.contrib import messages
+
 
 # Create your views here.
 def index(request):
@@ -17,12 +19,21 @@ def index(request):
         print (email)
         return render(request,'basic/index.html',{'email':email})
     else:
-        return render(request,'basic/index.html')
+        context={
+            'error':request.session.get('error')
+        }
+        return render(request,'basic/index.html',context)
 
 def login(request):
-    user=User.objects.get(email=request.POST['email'])
+    try:
+        user=User.objects.get(email=request.POST['email'])
+    except:
+        request.session['error']="Wrong Credentials"
+        return redirect('/')
     if user.password==request.POST['password']:
         # request.session['token']=1
+        if 'error' in request.session:
+            del request.session['error']
         request.session['email']=user.email
         user = authenticate(username=user.email, password=request.POST.get('password'))
         return redirect('/')
