@@ -15,7 +15,7 @@
 		<!-- <link rel="stylesheet" type="text/css" href="{% static 'leavemodule/css/clg.css' %}new.css' %}" />
 		<link rel="stylesheet" type="text/css" href="{% static 'basic/css/demo.css' %}" />
 		<link rel="stylesheet" type="text/css" href="{% static 'basic/css/component.css' %}" /> -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/css?family=Just+Another+Hand" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
@@ -24,6 +24,7 @@
 		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script> -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style media="screen">
 
@@ -40,6 +41,10 @@
         margin-left:85px;
         color: black;
         text-decoration: none;
+      }
+      span{
+        font-size: 20px;
+
       }
       /*.main{
         background-image: url('{% static "basic/clg.jpg"%}');
@@ -64,7 +69,7 @@
             <ul class="right hide-on-med-and-down">
               <li><i class="material-icons md-48" style="margin-right:20px">perm_identity</i></li>
               <li><font style="margin-right:20px">{{email}}</font></li>
-              <li><a class="waves-effect waves-light btn" href="logout/" ><center>LogOut</center></a></li>
+              <li><a class="waves-effect waves-light btn" href="/logout/" ><center>LogOut</center></a></li>
             </ul>
           {% else %}
             <ul class="right hide-on-med-and-down">
@@ -79,14 +84,37 @@
       <!-- <img src="{% static 'leavemodule/css/clg.jpg' %}" alt=""> -->
       <div class="container" style="padding-top:100px">
         <div class="row">
-          <div class="card col s8 ">
+          <div class="card col s12 ">
             <div class="row"style="padding:50px;padding-bottom:0px">
-              <div class="left card-title">
+              <div class="left card-title col s12">
                 <b>Response</b>
               </div>
+                <div class="col s12">
+                <hr style="border: 1px dashed black;" />
             </div>
-
-
+            </div>
+            <div class="col s11 offset-s1">
+              {% for app in application %}
+                {% if app.status == 1 %}
+                    <span class="col s1" style="padding-top: 10px;">{{forloop.counter}}.</span>
+                    <p>Your Request For
+                      {% for key,value in leaves.items %}
+                        {% if app.type_of_leave == key %}
+                          <strong>{{value}}</strong>
+                        {% endif %}
+                        {% endfor %}
+                        From <strong>{{app.from_date}}</strong> Till <strong>{{app.till_date}}</strong> has been <strong>APPROVED</strong>
+                      </p>
+                      <br>
+                      <span class="col s1 offset-s1" style="padding-top: 10px;"><strong>Remarks:  </strong></span>
+                      <p>
+                      {% if app.remarks is NULL %}
+                      {% else %}
+                      {{app.remarks}}
+                      {% endif %}</p>
+                {% endif %}
+              {% endfor %}
+            </div>
             </div>
         </div>
       </div>
