@@ -32,34 +32,33 @@ class User(models.Model):
     	)
     designation=models.CharField(max_length=50,choices=DESIGNATION)
     DEPARTMENT = (
-    	('FA','Finance and Accounts'),
-    	('EST','Establishment'),
+    	('Finance and Accounts','Finance and Accounts'),
+    	('Establishment','Establishment'),
     	('Academics','Academics'),
-    	('CC','Computer Center'),
+    	('Computer Center','Computer Center'),
     	('ECE','ECE'),
     	('CSE','CSE'),
     	('ME','ME'),
     	('Design','Design'),
     	('Mechatronics','Mechatronics'),
-    	('NS','Natural Science'),
-    	('PC','Placement Cell'),
+    	('Natural Science','Natural Science'),
+    	('Placement Cell','Placement Cell'),
     	('IWD','IWD'),
-    	('R&D','Office of The Dean R&D'),
+    	('Office of The Dean R&D','Office of The Dean R&D'),
     	('Directorate','Directorate'),
     	('Library','Library'),
-    	('P&D','Office of The Dean P&D'),
+    	('Office of The Dean P&D','Office of The Dean P&D'),
     	('Student Affairs','Student Affairs'),
-    	('GA','General Administration'),
-    	('RO','Registrar Office'),
-    	('PS','Purchase and Store'),
+    	('General Administration','General Administration'),
+    	('Registrar Office','Registrar Office'),
+    	('Purchase and Store','Purchase and Store'),
     	('Workshop','Workshop'),
-    	('EST-PS','Establishment & P&S'),
-    	('FA-GA','F&A & GA'),
-    	('Security','Security and Central Mess'),
-    	('RTI','Establishment, RTI and Rajbhasha'),
+    	('Establishment & P&S','Establishment & P&S'),
+    	('F&A & GA','F&A & GA'),
+    	('Security and Central Mess','Security and Central Mess'),
+    	('Establishment, RTI and Rajbhasha','Establishment, RTI and Rajbhasha'),
         ('Registrar Office','Registrar Office'),
     	)
-
     department=models.CharField(max_length=50,choices=DEPARTMENT)
     is_staff=models.BooleanField(default="True")
     password=models.CharField(max_length=1000,default=123)

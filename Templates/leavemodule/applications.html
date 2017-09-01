@@ -15,7 +15,7 @@
 		<!-- <link rel="stylesheet" type="text/css" href="{% static 'leavemodule/css/clg.css' %}new.css' %}" />
 		<link rel="stylesheet" type="text/css" href="{% static 'basic/css/demo.css' %}" />
 		<link rel="stylesheet" type="text/css" href="{% static 'basic/css/component.css' %}" /> -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/css?family=Just+Another+Hand" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
@@ -24,6 +24,7 @@
 		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script> -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style media="screen">
 
@@ -40,6 +41,10 @@
         margin-left:85px;
         color: black;
         text-decoration: none;
+      }
+      span{
+        font-size: 20px;
+
       }
       /*.main{
         background-image: url('{% static "basic/clg.jpg"%}');
@@ -64,7 +69,7 @@
             <ul class="right hide-on-med-and-down">
               <li><i class="material-icons md-48" style="margin-right:20px">perm_identity</i></li>
               <li><font style="margin-right:20px">{{email}}</font></li>
-              <li><a class="waves-effect waves-light btn" href="logout/" ><center>LogOut</center></a></li>
+              <li><a class="waves-effect waves-light btn" href="/logout/" ><center>LogOut</center></a></li>
             </ul>
           {% else %}
             <ul class="right hide-on-med-and-down">
@@ -79,44 +84,81 @@
       <!-- <img src="{% static 'leavemodule/css/clg.jpg' %}" alt=""> -->
       <div class="container" style="padding-top:100px">
         <div class="row">
-          <div class="card col s8 ">
+          <div class="card col s12 ">
             <div class="row"style="padding:50px;padding-bottom:0px">
-              <div class="left card-title">
-                <b>Leave Module</b>
+              <div class="left card-title col s12">
+                <b>Your applications</b>
               </div>
+                <div class="col s12">
+                  <hr style="border: 1px dashed black;" />
+                </div>
             </div>
 
-            <div style="padding-left:100px;padding-top:30px;padding-bottom:100px">
-              <a href="/leave_module/summary">
-                <div style="padding: 30px;" class="grey lighten-3 col s2 waves-effect">
-                  <center><img src="{% static 'leavemodule/img/sum.png'%}" class="responsive-img" /><br>
-                  <span class="indigo-text text-lighten-1"><h5>Summary</h5></span></center>
+            <div class="col s11 offset-s1">
+              {% for inb in inbox %}
+              <div class="row">
+                <span class="col s1" style="padding-top: 10px;">{{ forloop.counter }}.</span>
+                <span class="col s7 offset-s1" style="padding-top: 10px;">Application Id: {{inb.ap_id.pk}}</span>
+                <div class="col s1 offset-s2 buttons" id="add{{ forloop.counter }}"style="padding-top:20px;display:block">
+                  <a data = {{ forloop.counter }} class="btn-floating btn-large waves-effect waves-light red showdetail">
+                    <i class="material-icons">add</i>
+                  </a>
                 </div>
-              </a>
+                <div class="col s1 offset-s2 buttons" id="minus{{ forloop.counter }}" style="padding-top:20px;display:none">
+                  <a data = {{ forloop.counter }} class="btn-floating btn-large waves-effect waves-light red hidedetail">
+                    <i class="material-icons">remove</i>
+                  </a>
+                </div>
+              </div>
+                <div class="col s10 offset-s1 data" id="detail{{ forloop.counter }}" style="display:none;margin-bottom:30px; border:1px black solid">
+                <ul><span>{{inb.ap_id.acad_pf.name}} has {% if inb.acad_respo == 0%} not{% endif %} accpected the responsibility {% if inb.acad_respo == 0%} till now{% endif %} </span></ul><br>
+                <ul><span>{{inb.ap_id.admin_pf.name}} has {% if inb.admin_respo == 0%} not{% endif %} accpected the responsibility {% if inb.admin_respo == 0%} till now{% endif %} </span></ul></br>
+                <span><strong>From:</strong>   {{inb.ap_id.from_date}}</span><br>
+                <span><strong>Till:</strong>   {{inb.ap_id.till_date}}</span><br>
+                <span><strong>Academic Responsibilty:</strong>   {{inb.ap_id.acad_pf.name }}</span><br>
+                <span><strong>Administrative Responsibilty:</strong>   {{inb.ap_id.admin_pf.name}}</span><br>
+              </div>
+                {% endfor %}
+                <a class="waves-effect waves-light btn modal-trigger" href="/leave_module/application " style="margin-bottom:30px "><center>Apply for New Leave</center></a>
 
-              <a href="/leave_module/applications">
-                <div style="padding: 30px;" class="grey lighten-3 col s2 offset-s1 waves-effect">
-                  <center><img src="{% static 'leavemodule/img/letter.png'%}" class="responsive-img" /><br>
-                  <span class="indigo-text text-lighten-1"><h5>Application</h5></span></center>
-                </div>
-              </a>
+              </div>
 
-                <a href="/leave_module/response">
-                <div  style="padding: 30px;" class="grey lighten-3 col s2 offset-s1 waves-effect">
-                  <center><img src="{% static 'leavemodule/img/status.png'%}" class="responsive-img" /><br>
-                  <span class="indigo-text text-lighten-1"><h5>Response</h5></span></center>
-                </div>
-              </a>
-              <a href="/leave_module/inbox" >
-                <div id="inbox"  style="padding: 30px" class="grey lighten-3 col s2 offset-s1 waves-effect">
-                  <center><img src="{% static 'leavemodule/img/inbox.png'%}" class="responsive-img" /><br>
-                  <span class="indigo-text text-lighten-1"><h5>Inbox</h5></span></center>
-                </div>
-              </a>
+
             </div>
           </div>
         </div>
       </div>
     </div>
-    </body>
+    <script type="text/javascript">
+
+    // $('.buttons').on('click', 'a', function(){
+    // // do something here
+    //    document.getElementByClass(".data").style.display="block";
+    //  });
+    $('.showdetail').click(function(e){
+      id = $(this).attr('data');
+      div = $('#detail'+id);
+      div1= $('#minus'+id);
+      div2= $('#add'+id);
+      div2.css({'display':'none'});
+      div1.css({'display':'block'});
+      div.css({'display': 'block'});
+
+    });
+    $('.hidedetail').click(function(e){
+      id = $(this).attr('data');
+      div = $('#detail'+id);
+      div1= $('#minus'+id);
+      div2= $('#add'+id);
+      div2.css({'display':'block'});
+      div1.css({'display':'none'});
+      div.css({'display': 'none'});
+
+    });
+    $('#remove').click(function(){
+      location.reload();
+
+    });
+    </script>
+</body>
 </html>

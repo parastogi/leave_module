@@ -95,7 +95,8 @@
             </div>
             <div class="col s11 offset-s1">
               {% for app in application %}
-                {% if app.status == 1 %}
+                {% if app.status == 1 or app.status == 3 %}
+                    <div class="col s8 offset-s1">
                     <span class="col s1" style="padding-top: 10px;">{{forloop.counter}}.</span>
                     <p>Your Request For
                       {% for key,value in leaves.items %}
@@ -103,15 +104,17 @@
                           <strong>{{value}}</strong>
                         {% endif %}
                         {% endfor %}
-                        From <strong>{{app.from_date}}</strong> Till <strong>{{app.till_date}}</strong> has been <strong>APPROVED</strong>
+                        From <strong>{{app.from_date}}</strong> Till <strong>{{app.till_date}}</strong> has been <strong>{% if app.status == 1%}APPROVED{% else %}REJECTED{% endif %}</strong>
+
                       </p>
                       <br>
-                      <span class="col s1 offset-s1" style="padding-top: 10px;"><strong>Remarks:  </strong></span>
+                      <span class="col s1 offset-s1" ><strong>Remarks:  </strong></span>
                       <p>
                       {% if app.remarks is NULL %}
                       {% else %}
                       {{app.remarks}}
-                      {% endif %}</p>
+                      {% endif %}</p><br>
+                    </div>
                 {% endif %}
               {% endfor %}
             </div>

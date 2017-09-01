@@ -15,16 +15,16 @@ class SanctionAdmin(admin.ModelAdmin):
     ]
     list_display = ('department', 'sanction_cl_rh','sanction_others')
 
-class InboxAdmin(admin.ModelAdmin):
-    model = Inbox
-
-    fieldsets = [
-        (None,{'fields': ['pf_sender']}),
-        (None, {'fields': ['pf_reciever']}),
-        (None, {'fields': ['response']}),
-        (None, {'fields': ['date']}),
-    ]
-    list_display = ('pf_sender', 'pf_reciever','response','date')
+# class InboxAdmin(admin.ModelAdmin):
+#     model = Inbox
+#
+#     fieldsets = [
+#         (None,{'fields': ['pf_sender']}),
+#         (None, {'fields': ['pf_reciever']}),
+#         (None, {'fields': ['response']}),
+#         (None, {'fields': ['date']}),
+#     ]
+#     list_display = ('pf_sender', 'pf_reciever','response','date')
 
 class Leave_creditsAdmin(admin.ModelAdmin):
     model = Leave_credits
@@ -37,8 +37,9 @@ class Leave_creditsAdmin(admin.ModelAdmin):
         (None, {'fields': ['earned']}),
         (None, {'fields': ['commuted']}),
         (None, {'fields': ['vacation']}),
+        (None, {'fields': ['year']}),
     ]
-    list_display = ('pf', 'casual','restricted','sp_casual','earned','commuted','vacation')
+    list_display = ('pf', 'casual','restricted','sp_casual','earned','commuted','vacation','year')
 
 class DepartmentHeadAdmin(admin.ModelAdmin):
     model = DepartmentHead
@@ -93,4 +94,4 @@ admin.site.register(DepartmentHead, DepartmentHeadAdmin),
 admin.site.register(Application, ApplicationAdmin),
 admin.site.register(Leave_credits,Leave_creditsAdmin),
 admin.site.register(Sanction, SanctionAdmin),
-admin.site.register(Inbox,InboxAdmin)
+admin.site.register(Inbox)

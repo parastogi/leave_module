@@ -39,6 +39,8 @@
         color: black;
         text-decoration: none;
       }
+
+
     </style>
     <script>
       $(document).ready(function() {
@@ -80,6 +82,17 @@
                 <b>Application</b>
               </div>
             </div>
+            {% if messages %}
+             <div style="margin-left:150px;width:1000px;border:1px black solid;border-radius:10px;margin-bottom:20px" >
+              <div style="margin-left:100px;padding-top:20px;padding-bottom:20px">
+                  {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}><strong>{{ message }}<strong></li>
+                  {% endfor %}
+              </div >
+             </div>
+              {% endif %}
+
+
             <form class="container" method="post" action="/leave_module/submit/">
                 {% csrf_token %}
                 <div class="col s12">
@@ -87,7 +100,7 @@
                       {% if cl is not 0 %}
                       <div class="col s2" id="r1" style="display:block">
                         <p>
-                          <input name="leaves" type="radio" id="test1" value="1"/>
+                          <input name="leaves" type="radio" id="test1" value="1" required/>
                           <label for="test1">Casual Leave</label>
                         </p>
                       </div>
@@ -95,7 +108,7 @@
                       {% if rh is not 0 %}
                       <div class="col s2" id="r1" style="display:block">
                         <p >
-                          <input name="leaves" type="radio" id="test2" value="2"/>
+                          <input name="leaves" type="radio" id="test2" value="2" required/>
                           <label for="test2">Restricted Leave</label>
                         </p>
                       </div>
@@ -103,7 +116,7 @@
                       {% if spc is not 0 %}
                       <div class="col s2" id="r1" style="display:block">
                         <p>
-                          <input name="leaves" type="radio" id="test3" value="3"/>
+                          <input name="leaves" type="radio" id="test3" value="3" required/>
                           <label for="test3">Special Casual Leave</label>
                         </p>
                       </div>
@@ -114,7 +127,7 @@
                       {% if el is not 0 %}
                       <div class="col s2" id="r1" style="display:block">
                         <p >
-                          <input name="leaves" type="radio" id="test4" value="4"  />
+                          <input name="leaves" type="radio" id="test4" value="4" required />
                           <label for="test4">Earned Leave</label>
                         </p>
                       </div>
@@ -122,7 +135,7 @@
                       {% if col is not 0 %}
                       <div class="col s2" id="r1" style="display:block">
                         <p >
-                          <input name="leaves" type="radio" id="test5" value="5"/>
+                          <input name="leaves" type="radio" id="test5" value="5"required/>
                           <label for="test5">Commuted Leaeve</label>
                         </p>
                       </div>
@@ -130,7 +143,7 @@
                       {% if vl is not 0 %}
                       <div class="col s2" id="r1" style="display:block">
                         <p>
-                          <input name="leaves" type="radio" id="test6" value="6"/>
+                          <input name="leaves" type="radio" id="test6" value="6"required/>
                           <label for="test6">Vacation Leave</label>
                         </p>
                       </div>
@@ -139,11 +152,11 @@
                 </div>
               <div class="col s6">
                 <i class="material-icons col s1" style="padding-top:20px">date_range</i>
-                <input class="col s10 offset-s1"type="text" name="leave_from" id="datepicker1" placeholder="Leave-From" />
+                <input class="col s10 offset-s1"type="text" name="leave_from" id="datepicker1" placeholder="Leave-From"required />
               </div>
               <div class="col s6">
                 <i class="material-icons col s1" style="padding-top:20px">date_range</i>
-                <input class="col s10 offset-s1"type="text" name="leave_till" id="datepicker2" placeholder="Leave-Till" />
+                <input class="col s10 offset-s1"type="text" name="leave_till" id="datepicker2" placeholder="Leave-Till"required />
               </div>
               <div class="col s12" style="padding-left:25px;margin-top:10px;margin-bottim:10px">
                 <p>
@@ -153,47 +166,52 @@
               </div>
               <div class="col s6">
                 <i class="material-icons col s1" style="padding-top:20px">date_range</i>
-                <input class="col s10 offset-s1 " type="text" name="station_from" id="datepicker3" placeholder="Leave-From" disabled />
+                <input class="col s10 offset-s1 " type="text" name="station_from" id="datepicker3" placeholder="Leave-From" disabled required/>
               </div>
               <div class="col s6">
                 <i class="material-icons col s1" style="padding-top:20px">date_range</i>
-                <input class="col s10 offset-s1 "type="text" name="station_till"   id="datepicker4" placeholder="Leave-Till" disabled/>
+                <input class="col s10 offset-s1 "type="text" name="station_till"   id="datepicker4" placeholder="Leave-Till" disabled required/>
               </div>
 
               <div class="col s12">
                 <div class="input-field col s12">
                   <label for="textarea1" class="col s2">Address</label>
-                  <textarea id="textarea1" name="address" class="materialize-textarea col s12 offse-s1" disabled></textarea>
+                  <textarea id="textarea1" name="address" class="materialize-textarea col s12 offse-s1" disabled required></textarea>
                 </div>
               </div>
               <div class="col s12">
                 <div class="input-field col s12">
                   <label for="textarea1" class="col s2">Purpose</label>
-                  <textarea id="textarea1" name="purpose" class="materialize-textarea col s12 offse-s1"></textarea>
+                  <textarea id="textarea1" name="purpose" class="materialize-textarea col s12 offse-s1" required></textarea>
                 </div>
               </div>
               <div class="col 12">
                 <div class="input-field col s6"  name="acad_respo">
-                    <select name="acad_respo">
+                    <select name="acad_respo" required>
                       {% for user in list %}
                       <option value='{{user}}'>{{user}}</option>
                       {% endfor %}
                     </select>
-                    <label>Materialize Select</label>
+                    <label>Academic Responsibility</label>
                   </div>
                   <div class="input-field col s6"  name="admin_respo">
-                      <select name="admin_respo">
+                      <select name="admin_respo" required>
                         {% for user in list %}
                         <option value='{{user}}'>{{user}}</option>
                         {% endfor %}
                       </select>
-                      <label>Materialize Select</label>
+                      <label>Admin Responsibility </label>
                   </div>
               </div>
-              <button class="btn waves-effect waves-light purple accent-4" style="Margin-left:25px;margin-bottom:100px"type="submit" name="action">Submit
-                <i class="material-icons right">send</i>
-              </button>
+              <div class="col s12" style="margin-top:30px">
+                <button class="btn waves-effect waves-light purple accent-4 col s2 " style="Margin-left:25px;margin-bottom:100px"type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                </button>
+                <button class="btn waves-effect waves-light purple accent-4 col s2 " style="Margin-left:25px;margin-bottom:100px" type="reset" name="action">Reset
+                  <i class="material-icons right">clear</i>
+                </button>
               <!-- No of days -->
+            </div>
             </form>
             </div>
         </div>
@@ -210,12 +228,12 @@
         {
           $( "#textarea1" ).prop( "disabled", false )
           $( "#datepicker3" ).prop( "disabled", false )
-          $( "#datepicker3" ).prop( "disabled", false )
+          $( "#datepicker4" ).prop( "disabled", false )
         }
         else{
           $( "#textarea1" ).prop( "disabled", true )
           $( "#datepicker3" ).prop( "disabled", true )
-          $( "#datepicker3" ).prop( "disabled", true )
+          $( "#datepicker4" ).prop( "disabled", true )
         }
       });
 

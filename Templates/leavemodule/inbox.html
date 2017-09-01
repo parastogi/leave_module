@@ -91,12 +91,13 @@
               </div>
               <br><br>
               <div class="col s12">
-                <strong>Requests</strong>
+                <strong>Sanction Requests</strong>
                 </br>
                 <hr style="border: 1px dashed black;" />
                 {% if check is not 0 %}
                     {% for app in application %}
                       {% if app.status == 0 %}
+                        {% if app.pk in passed %}
                         <div class="row">
                           <span class="col s1" style="padding-top: 10px;">{{ forloop.counter }}.</span>
                           <span class="col s7 offset-s1" style="padding-top: 10px;">{{ app.pf_in.name }}</span>
@@ -141,8 +142,9 @@
                               </form>
                             </div>
                           </div>
+                          {% endif %}
                       {% elif app.status == 2 %}
-                      <div class="row">
+                        <div class="row">
                           <span class="col s1" style="padding-top: 10px;">{{ forloop.counter }}.</span>
                           <span class="col s7 offset-s1" style="padding-top: 10px;">{{ app.pf_in.name }}</span>
                           <div class="col s1 offset-s2 buttons" id="add{{ forloop.counter }}" style="padding-top:20px;display:block">
@@ -190,9 +192,53 @@
                       {% endif %}
                     {% endfor %}
                     {% else %}
-                      <p>There are no furhter records</p>
+                      <p>There are no records</p>
                     {% endif %}
 
+              </div>
+              <div class="col s12" style="padding-top:30px">
+                <strong>Replacement Requests</strong>
+                </br>
+                <hr style="border: 1px dashed black;" />
+                {% for inb in inbox2 %}
+                  {% if inb.admin_respo == 0%}
+                    <div class="row">
+                      <ul class="collection" style="margin-left:30px">
+                      <li><span class="col s7 offset-s1" style="padding-top: 10px;">{{ inb.ap_id.pf_in.name }} is requesting You to be his Acadmeic Replacement from {{inb.ap_id.from_date}} Till {{inb.ap_id.till_date}} </span></li>
+
+                      <form action="/leave_module/{{inb.ap_id.pk}}/rep_request/" style="margin-top:20px"method="post">
+                        {% csrf_token %}
+                        <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="approve">
+                        <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="Reject">
+                      </form>
+                      </ul>
+                      <div class="col s1 offset-s2 buttons" id="minus{{ forloop.counter }}" style="padding-top:20px;display:none">
+                        <a data = {{ forloop.counter }} class="btn-floating btn-large waves-effect waves-light red hidedetail">
+                          <i class="material-icons">remove</i>
+                        </a>
+                      </div>
+                    </div>
+                  {% endif %}
+                  {% endfor %}
+                  {% for inb in inbox1 %}
+                  {% if inb.acad_respo == 0 %}
+                      <div class="row">
+                        <ul class="collection" style="margin-left:30px">
+                          <li><span class="col s7 offset-s1" style="padding-top: 10px;">{{ inb.ap_id.pf_in.name }} is requesting You to be his Acadmeic Replacement from {{inb.ap_id.from_date}} Till {{inb.ap_id.till_date}} </span></li>
+                        </ul>
+                        <form action="/leave_module/{{inb.ap_id.pk}}/rep_request/" method="post">
+                          {% csrf_token %}
+                          <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="approve">
+                          <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="Reject">
+                        </form>
+                        <div class="col s1 offset-s2 buttons" id="minus{{ forloop.counter }}" style="padding-top:20px;display:none">
+                          <a data = {{ forloop.counter }} class="btn-floating btn-large waves-effect waves-light red hidedetail">
+                            <i class="material-icons">remove</i>
+                          </a>
+                        </div>
+                      </div>
+                      {% endif %}
+                  {% endfor %}
               </div>
             </div>
           </div>
