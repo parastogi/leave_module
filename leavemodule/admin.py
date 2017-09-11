@@ -47,9 +47,12 @@ class DepartmentHeadAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,{'fields': ['department']}),
         (None, {'fields': ['hod']}),
+        (None, {'fields': ['temp']}),
+        (None, {'fields': ['till']}),
+        (None, {'fields': ['from_d']}),
 
     ]
-    list_display = ('department', 'hod')
+    list_display = ('department', 'hod', 'temp','till','from_d')
 
 class UserAdmin(admin.ModelAdmin):
     model = User

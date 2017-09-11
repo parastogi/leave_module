@@ -130,9 +130,15 @@ def inbox(request):
                 break
         print(xx)
         passed=[]
+        hod=[]
         for app in application:
+            if(app.pf_in.is_staff == False):
+                dh=DepartmentHead.objects.get(department=app.pf_in.department)
+                if(dh.hod.pf==app.pf_in.pf):
+                    hod.append(app.pf_in.name)
+            print(app.pk)
             inbox=Inbox.objects.get(ap_id=app.pk)
-            if(inbox.acad_respo == 1 and inbox.acad_respo == 1):
+            if(inbox.acad_respo == 1 and inbox.admin_respo == 1):
                 passed.append(app.pk)
         context={
             'application':application,
@@ -143,7 +149,8 @@ def inbox(request):
             'check':xx,
             'inbox1':inbox1,
             'inbox2':inbox2,
-            'passed':passed
+            'passed':passed,
+            'hod':hod
         }
         return render(request,'leavemodule/inbox.html',context)
 # def prevsubmit(request):
@@ -167,16 +174,24 @@ def submit(request):
         # print("x",credit.year)
         print(user.department)
         #Finding the person to which the application is to be forwarded
+        dh = DepartmentHead.objects.get(department=user.department)
+        if (dh.temp != dh.hod and dh.till < datetime.date.today()):
+            print(dh.hod)
+            dh.hod = dh.temp
+            print(dh.temp)
+
+            dh.save()
+
         if user.is_staff==True:
             sanction=Sanction.objects.get(department=user.department)
             pf_out=sanction.sanction_cl_rh.pf
 
         else:
-            dh=DepartmentHead.objects.get(department=user.department)
-            if user.name == dh.hod.name:
+            if user.pf == dh.hod.pf:
                 pf_out=1001
             else:
                 pf_out=dh.hod.pf
+
 
         # credit = Leave_credits.objects.get(pf=user.pf)
 
@@ -331,6 +346,30 @@ def process(request,ap_id):
             elif (leave_type == 6):
                 leave.vacation=leave.vacation - delta.days-1
 
+            if application.pf_in.is_staff == True:
+                print('hwygadsf')
+                sanction = Sanction.objects.get(department=user.department)
+                user_admin = User.objects.get(name=application.admin_pf.name)
+                if (sanction.sanction_cl_rh.pf == application.pf_in):
+                    sanction.sanction_cl_rh = user_admin
+                    sanction.save()
+            else:
+                dh = DepartmentHead.objects.get(department=application.pf_in.department)
+                user_admin = User.objects.get(pf=application.admin_pf.pf)
+                print('fadfasfadfa')
+                if application.pf_in.pf == dh.hod.pf:
+                    dh.temp = dh.hod
+                    print('for temp')
+                    print(dh.temp)
+                    dh.till = application.till_date
+                    print('application date')
+                    print(dh.till)
+                    dh.hod = user_admin
+                    print(user_admin)
+                    print("checkthisout")
+                    print(dh.hod)
+                    dh.save()
+
         elif(request.POST.get('submit') == 'reject'):
             print("2")
             application.status=3
@@ -354,16 +393,23 @@ def rep_request(request,ap_id):
         inbox=Inbox.objects.get(ap_id=ap_id)
         if(request.POST.get('submit') == 'approve'):
             print("x")
-            if (inbox.acad_res_pf.pf == user.pf):
-                inbox.acad_respo=1
-            elif (inbox.admin_res_pf.pf == user.pf):
+            if (inbox.admin_res_pf.pf == user.pf):
                 inbox.admin_respo=1
 
         elif(request.POST.get('submit') == 'reject'):
             print("y")
+            if (inbox.admin_res_pf.pf == user.pf):
+                inbox.admin_respo=2
+
+        elif(request.POST.get('submit1') == 'approve'):
+            print("x")
+            if (inbox.acad_res_pf.pf == user.pf):
+                inbox.acad_respo=1
+
+        elif(request.POST.get('submit1') == 'reject'):
+            print("y")
             if (inbox.acad_res_pf.pf == user.pf):
                 inbox.acad_respo=2
-            elif (inbox.admin_res_pf.pf == user.pf):
-                inbox.admin_respo=2
+
         inbox.save()
         return redirect("/leave_module/inbox")

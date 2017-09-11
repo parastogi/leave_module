@@ -6,6 +6,8 @@ from django.db.models.signals import post_save
 from django.db import models
 # Create your models here.
 from django.dispatch import receiver
+from django.utils import timezone
+import datetime
 
 class User(models.Model):
     pf=models.IntegerField(primary_key=True)
@@ -79,7 +81,11 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 class DepartmentHead(models.Model):
     department=models.CharField(max_length=50)
-    hod=models.ForeignKey(User,on_delete=models.CASCADE)
+    hod=models.ForeignKey(User,on_delete=models.CASCADE,related_name='hod')
+    temp=models.ForeignKey(User,on_delete=models.CASCADE,related_name='temp',null=True)
+    till=models.DateField()
+    from_d=models.DateField(null=True)
+
 # from django.dispatch import receiver
 #
 # class User_profile:

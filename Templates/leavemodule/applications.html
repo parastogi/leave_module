@@ -97,9 +97,9 @@
             <div class="col s11 offset-s1">
               {% for inb in inbox %}
               <div class="row">
-                <span class="col s1" style="padding-top: 10px;">{{ forloop.counter }}.</span>
+                <ul class="collection col s10" style="margin-left:30px;padding-top:20px">
                 <span class="col s7 offset-s1" style="padding-top: 10px;">Application Id: {{inb.ap_id.pk}}</span>
-                <div class="col s1 offset-s2 buttons" id="add{{ forloop.counter }}"style="padding-top:20px;display:block">
+                <div class="col s1 offset-s2 buttons" id="add{{ forloop.counter }}"style="display:block;margin-bottom:20px">
                   <a data = {{ forloop.counter }} class="btn-floating btn-large waves-effect waves-light red showdetail">
                     <i class="material-icons">add</i>
                   </a>
@@ -109,6 +109,7 @@
                     <i class="material-icons">remove</i>
                   </a>
                 </div>
+                </ul>
               </div>
                 <div class="col s10 offset-s1 data" id="detail{{ forloop.counter }}" style="display:none;margin-bottom:30px; border:1px black solid">
                 <ul><span>{{inb.ap_id.acad_pf.name}} has {% if inb.acad_respo == 0%} not{% endif %} accpected the responsibility {% if inb.acad_respo == 0%} till now{% endif %} </span></ul><br>

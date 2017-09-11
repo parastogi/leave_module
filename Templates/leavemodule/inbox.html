@@ -132,7 +132,7 @@
                                   <textarea id="remark" class="materialize-textarea" name="remark"></textarea>
                                   <label for="remark">Remarks</label>
                                 </div>
-                                {% if app.type_of_leave in cl_rh %}
+                                {% if app.type_of_leave in cl_rh or app.pf_in.name in hod %}
                                 <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="approve">
                                 {% elif app.type_of_leave in others %}
                                 <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="forward">
@@ -204,12 +204,12 @@
                   {% if inb.admin_respo == 0%}
                     <div class="row">
                       <ul class="collection" style="margin-left:30px">
-                      <li><span class="col s7 offset-s1" style="padding-top: 10px;">{{ inb.ap_id.pf_in.name }} is requesting You to be his Acadmeic Replacement from {{inb.ap_id.from_date}} Till {{inb.ap_id.till_date}} </span></li>
+                      <li><span class="col s7 offset-s1" style="padding-top: 10px;">{{ inb.ap_id.pf_in.name }} is requesting You to be his Administrative Replacement from {{inb.ap_id.from_date}} Till {{inb.ap_id.till_date}} </span></li>
 
                       <form action="/leave_module/{{inb.ap_id.pk}}/rep_request/" style="margin-top:20px"method="post">
                         {% csrf_token %}
                         <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="approve">
-                        <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="Reject">
+                        <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="reject">
                       </form>
                       </ul>
                       <div class="col s1 offset-s2 buttons" id="minus{{ forloop.counter }}" style="padding-top:20px;display:none">
@@ -223,14 +223,15 @@
                   {% for inb in inbox1 %}
                   {% if inb.acad_respo == 0 %}
                       <div class="row">
-                        <ul class="collection" style="margin-left:30px">
+                        <ul class="collection" style="margin-left:30px;padding-top:20px">
                           <li><span class="col s7 offset-s1" style="padding-top: 10px;">{{ inb.ap_id.pf_in.name }} is requesting You to be his Acadmeic Replacement from {{inb.ap_id.from_date}} Till {{inb.ap_id.till_date}} </span></li>
-                        </ul>
+
                         <form action="/leave_module/{{inb.ap_id.pk}}/rep_request/" method="post">
                           {% csrf_token %}
-                          <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="approve">
-                          <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit" value="Reject">
+                          <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit1" value="approve">
+                          <input class="btn" style="width:150px;margin-bottom:10px" type="submit" name="submit1" value="reject">
                         </form>
+                        </ul>
                         <div class="col s1 offset-s2 buttons" id="minus{{ forloop.counter }}" style="padding-top:20px;display:none">
                           <a data = {{ forloop.counter }} class="btn-floating btn-large waves-effect waves-light red hidedetail">
                             <i class="material-icons">remove</i>
